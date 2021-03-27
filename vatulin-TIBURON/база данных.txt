@@ -1,0 +1,80 @@
+drop table if exists Answer
+drop table if exists Interview
+drop table if exists Question
+drop table if exists Result
+drop table if exists Survey
+drop table if exists Users
+
+create table Answer (
+	Id int not null primary key,
+	Ans1 nvarchar(255) not null,
+	Ans2 nvarchar(255) not null,
+	Ans3 nvarchar(255) not null
+)
+
+create table Interview (
+	Id int not null primary key,
+	UserId int not null,
+	Info nvarchar(255) not null
+)
+
+create table Question (
+	Id int not null primary key,
+	Question nvarchar(255) not null,
+	AnswerId int not null,
+	ServeyId int not null
+)
+
+create table Result (
+	QuestionId  int not null,
+	Answer nvarchar(255) not null,
+	UserId int not null
+)
+
+create table Survey (
+	Id int not null primary key,
+	Info nvarchar(255) not null
+)
+
+create table Users (
+	Id int not null primary key,
+	Firstname  nvarchar(30) not null,
+	Lastname  nvarchar(30) not null
+)
+
+insert into Answer (Id, Ans1, Ans2, Ans3) values 
+(0, 'Ans1', 'Ans2', 'Ans3'),
+(1, 'Ans1', 'Ans2', 'Ans3'),
+(2, 'Ans1', 'Ans2', 'Ans3'),
+(3, 'Ans1', 'Ans2', 'Ans3'),
+(4, 'Ans1', 'Ans2', 'Ans3'),
+(5, 'Ans1', 'Ans2', 'Ans3')
+
+insert into Question (Id, Question, AnswerId, ServeyId) values 
+(0, 'Question1', 0, 0),
+(1, 'Question2', 1, 0),
+(2, 'Question3', 2, 0),
+(3, 'Question4', 3, 0),
+(4, 'Question1', 3, 1),
+(5, 'Question2', 4, 1)
+
+insert into Users (Id, Firstname, Lastname) values
+(0, 'Marusya', 'Inoviyeva'),
+(1, 'Victor', 'Gavushev')
+
+insert into Result (QuestionId, Answer, UserId) values
+(0, 'otvet-na-vopros', 0),
+(1, 'otvet-na-vopros', 0),
+(2, 'otvet-na-vopros', 0),
+(3, 'otvet-na-vopros', 0),
+(4, 'otvet-na-vopros', 0)
+
+insert into Survey (Id, Info) values
+(0, 'Anketa1'),
+(1, 'Anketa2')
+
+select * from Result
+select * from Question
+select * from Users
+select * from Survey
+select * from Answer
